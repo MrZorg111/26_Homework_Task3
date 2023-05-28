@@ -6,6 +6,9 @@ class Window {
 	int width = 10;
 	int heigth = 10;
 public:
+	void setCoordinate(int& x, int& y) {
+		coordinate_x = x; coordinate_y = y;
+	}
 	int getCoordinateX() {
 		return coordinate_x;
 	}

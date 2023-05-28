@@ -28,4 +28,17 @@ public:
 			std::cout << std::endl;
 		}
 	}
+	void getMoveVector(int v) {
+		int tempo_x = window.getCoordinateX(), tempo_y = window.getCoordinateY();
+		tempo_x += v; tempo_y += v;
+
+		if (tempo_x <= (heigth - 1) && tempo_y <= (width - 1)) {
+			window.setCoordinate(tempo_x, tempo_y);
+			std::cout << "New window coordinates: " << window.getCoordinateX() << " " << window.getCoordinateY() << std::endl;
+		}
+		else {
+			std::cout << "Shifting to this vector is impossible!\n";
+		}
+
+	}
 };
