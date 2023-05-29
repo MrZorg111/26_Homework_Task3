@@ -13,12 +13,16 @@ public:
 				if (i == 0 || i == heigth - 1) {
 					std::cout << "-";
 				}
-				else if (i == window.getCoordinateX() && j == window.getCoordinateY() || (i == window.getHeigth() && j == window.getCoordinateX())) {
-					for (j -= 1; j < window.getWidth(); j++) {
+				else if ((i == window.getCoordinateY() || i == window.getHeigth()) && j == window.getCoordinateX()) {
+					for (; j <= window.getWidth(); j++) {
 						std::cout << "-";
 					}
+					std::cout << " ";
 				}
-				else if (((i > 0 || i < heigth -1) && (j == 0 || j == width - 1)) || ((i > window.getCoordinateX() && i < window.getHeigth()) && (j == window.getCoordinateY() || j == window.getWidth()))) {
+				else if ((i > 0 && i < heigth - 1) && (j == 0 || j == width - 1)) {
+					std::cout << "|";
+				}
+				else if ((i > window.getCoordinateY() && i < window.getHeigth()) && (j == window.getCoordinateX() || j == window.getWidth())) {
 					std::cout << "|";
 				}
 				else {
@@ -42,3 +46,15 @@ public:
 
 	}
 };
+/*
+* ((i > window.getCoordinateY() || i < window.getHeigth()) && (j == window.getCoordinateX() || j == window.getWidth())))
+  
+  
+  j0 j1 j2 j3 j4 j5 j6 j7 j8 j9 j10
+i0 -  -  -	-  -  -  -  -  -  -  - 
+i1 |  -  -  -  -  -
+
+j == window.getCoordinateY() || (i == window.getHeigth() && j == window.getCoordinateX())
+
+
+*/

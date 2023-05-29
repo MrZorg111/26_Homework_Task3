@@ -23,5 +23,8 @@ int main() {
 			monitor->getViewMonitor();
 		}
 	} while (command != "close");
+	
+	delete monitor;
+	monitor = nullptr;
 	return 0;
 }
