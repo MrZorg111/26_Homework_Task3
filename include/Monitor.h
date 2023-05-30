@@ -46,37 +46,17 @@ public:
 		}
 
 	}
+	void getResizeWindow(int heig, int wid) {
+		int tempo_size_h = window.getHeigth(), tempo_size_w = window.getWidth();
+		tempo_size_h += heig, tempo_size_w += wid;
+
+		if ((tempo_size_h < heigth || tempo_size_h > 0) && (tempo_size_w < width || tempo_size_w > 0) && 
+				(tempo_size_h + window.getCoordinateY() < 50 && tempo_size_h + window.getCoordinateX() < 80)) {
+			window.setSizeWindow(heig, wid);
+			std::cout << "Ноывый размер окна: высота " << window.getHeigth() << ". Ширина " << window.getWidth() << std::endl;
+		}
+		else {
+			std::cout << "Увеличение на заданные размеры не возможно!\n";
+		}
+	}
 };
-/*
-* ((i > window.getCoordinateY() || i < window.getHeigth()) && (j == window.getCoordinateX() || j == window.getWidth())))
-  
-  
-  j0 j1 j2 j3 j4 j5 j6 j7 j8 j9 j10								
-i0 -  -  -	-  -  -  -  -  -  -  -					w = 5
-i1 |  -  -  -  -  -				  |					h = 6
-i2 |  |           |               |
-i3 |  |           |               |
-i4 |  |           |               |
-i5 |  |           |               | 
-i6 |  -  -  -  -  -               |
-i7 |                              |
-i8 |                              |
-i9 |                              |
-i10-  -  -  -  -  -  -  -  -  -  - 
-
-  j0 j1 j2 j3 j4 j5 j6 j7 j8 j9 j10
-i0 -  -  -	-  -  -  -  -  -  -  -					w = 5
-i1 |  -  -  -  -  -				  |					h = 6
-i2 |  |           |               |
-i3 |  |           |               |
-i4 |  |           |               |
-i5 |  |           |               |
-i6 |  -  -  -  -  -               |
-i7 |                              |
-i8 |                              |
-i9 |                              |
-i10-  -  -  -  -  -  -  -  -  -  -
-j == window.getCoordinateY() || (i == window.getHeigth() && j == window.getCoordinateX())
-
-
-*/

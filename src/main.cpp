@@ -16,7 +16,11 @@ int main() {
 		}
 		//Команда resize запрашивает из стандартного ввода новый размер окна. После изменения размера сообщение с новым размером выводится на экране.
 		else if (command == "resize") {
-
+			std::cout << "Введите параметры изменения размера.\n Высота: ";
+			std::cin >> size_heigth_window;
+			std::cout << "Ширина \n";
+			std::cin >> size_width_window;
+			monitor->getResizeWindow(size_heigth_window, size_width_window);
 		}
 		//Команда display выводит текущее изображение монитора в консоль. 0 — это пиксель вне области окна, 1 — с окном.
 		else if (command == "display") {

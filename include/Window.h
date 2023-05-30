@@ -11,6 +11,9 @@ public:
 		coordinate_x = x; coordinate_y = y, step += s;
 
 	}
+	void setSizeWindow(int& h, int& w) {
+		heigth += h, width += w;
+	}
 	int getCoordinateX() {
 		return coordinate_x;
 	}
