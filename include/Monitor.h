@@ -8,21 +8,22 @@ class Monitor {
 public:
 	//Вывод изображения в консоль
 	void getViewMonitor() {
+		std::cout << "W + S " << window.getWidth() + window.getStep() << "\n";
 		for (int i = 0; i < heigth; i++) {
 			for (int j = 0; j < width; j++) {
 				if (i == 0 || i == heigth - 1) {
 					std::cout << "-";
 				}
-				else if ((i == window.getCoordinateY() || i == window.getHeigth()) && j == window.getCoordinateX()) {
-					for (; j <= window.getWidth(); j++) {
+				else if ((i == window.getCoordinateY() && j == window.getCoordinateY()) || (i == (window.getHeigth() + window.getStep()) && j == window.getCoordinateX())) {
+					for (; j <= (window.getWidth() + window.getStep()); j++) {
 						std::cout << "-";
 					}
 					std::cout << " ";
 				}
-				else if ((i > 0 && i < heigth - 1) && (j == 0 || j == width - 1)) {
+				else if ((i > 0 && i < heigth) && (j == 0 || j == width - 1)) {
 					std::cout << "|";
 				}
-				else if ((j > window.getCoordinateY() && j < window.getHeigth() + j) && (i == window.getCoordinateX() || i == window.getWidth())) {
+				else if ((i > window.getCoordinateY() && (j == window.getCoordinateX() || j == (window.getWidth() + window.getStep()))) && i < (window.getHeigth() + window.getStep())) {
 					std::cout << "|";
 				}
 				else {
@@ -33,11 +34,11 @@ public:
 		}
 	}
 	void getMoveVector(int v) {
-		int tempo_x = window.getCoordinateX(), tempo_y = window.getCoordinateY();
+		int tempo_x = window.getCoordinateX(), tempo_y = window.getCoordinateY(), tempo_step = v;
 		tempo_x += v; tempo_y += v;
 
 		if (tempo_x <= (heigth - 1) && tempo_y <= (width - 1)) {
-			window.setCoordinate(tempo_x, tempo_y);
+			window.setCoordinate(tempo_x, tempo_y, tempo_step);
 			std::cout << "New window coordinates: " << window.getCoordinateX() << " " << window.getCoordinateY() << std::endl;
 		}
 		else {
