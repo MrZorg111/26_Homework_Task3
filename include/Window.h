@@ -1,8 +1,8 @@
 #pragma once
 
 class Window {
-	int coordinate_x = 1;
-	int coordinate_y = 1;
+	int coordinate_x = 3;
+	int coordinate_y = 3;
 	int width = 10;
 	int heigth = 10;
 public:

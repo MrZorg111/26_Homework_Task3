@@ -22,7 +22,7 @@ public:
 				else if ((i > 0 && i < heigth - 1) && (j == 0 || j == width - 1)) {
 					std::cout << "|";
 				}
-				else if ((i > window.getCoordinateY() && i < window.getHeigth()) && (j == window.getCoordinateX() || j == window.getWidth())) {
+				else if ((j > window.getCoordinateY() && j < window.getHeigth() + j) && (i == window.getCoordinateX() || i == window.getWidth())) {
 					std::cout << "|";
 				}
 				else {
@@ -50,10 +50,31 @@ public:
 * ((i > window.getCoordinateY() || i < window.getHeigth()) && (j == window.getCoordinateX() || j == window.getWidth())))
   
   
-  j0 j1 j2 j3 j4 j5 j6 j7 j8 j9 j10
-i0 -  -  -	-  -  -  -  -  -  -  - 
-i1 |  -  -  -  -  -
+  j0 j1 j2 j3 j4 j5 j6 j7 j8 j9 j10								
+i0 -  -  -	-  -  -  -  -  -  -  -					w = 5
+i1 |  -  -  -  -  -				  |					h = 6
+i2 |  |           |               |
+i3 |  |           |               |
+i4 |  |           |               |
+i5 |  |           |               | 
+i6 |  -  -  -  -  -               |
+i7 |                              |
+i8 |                              |
+i9 |                              |
+i10-  -  -  -  -  -  -  -  -  -  - 
 
+  j0 j1 j2 j3 j4 j5 j6 j7 j8 j9 j10
+i0 -  -  -	-  -  -  -  -  -  -  -					w = 5
+i1 |  -  -  -  -  -				  |					h = 6
+i2 |  |           |               |
+i3 |  |           |               |
+i4 |  |           |               |
+i5 |  |           |               |
+i6 |  -  -  -  -  -               |
+i7 |                              |
+i8 |                              |
+i9 |                              |
+i10-  -  -  -  -  -  -  -  -  -  -
 j == window.getCoordinateY() || (i == window.getHeigth() && j == window.getCoordinateX())
 
 
