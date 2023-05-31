@@ -6,7 +6,7 @@ class Monitor {
 	int heigth = 50;
 	Window window;
 public:
-	//Вывод изображения в консоль
+	//Image output to the console
 	void getViewMonitor() {
 		std::cout << "W + S " << window.getWidth() + window.getStep() << "\n";
 		for (int i = 0; i < heigth; i++) {
@@ -33,9 +33,9 @@ public:
 			std::cout << std::endl;
 		}
 	}
-	void getMoveVector(int v) {
+	void getMoveVector(int v_x, int v_y) {
 		int tempo_x = window.getCoordinateX(), tempo_y = window.getCoordinateY(), tempo_step = v;
-		tempo_x += v; tempo_y += v;
+		tempo_x += v_x; tempo_y += v_y;
 
 		if (tempo_x <= (heigth - 1) && tempo_y <= (width - 1)) {
 			window.setCoordinate(tempo_x, tempo_y, tempo_step);
@@ -53,10 +53,10 @@ public:
 		if ((tempo_size_h < heigth || tempo_size_h > 0) && (tempo_size_w < width || tempo_size_w > 0) && 
 				(tempo_size_h + window.getCoordinateY() < 50 && tempo_size_h + window.getCoordinateX() < 80)) {
 			window.setSizeWindow(heig, wid);
-			std::cout << "Ноывый размер окна: высота " << window.getHeigth() << ". Ширина " << window.getWidth() << std::endl;
+			std::cout << "New window size: height " << window.getHeigth() << ". Width " << window.getWidth() << std::endl;
 		}
 		else {
-			std::cout << "Увеличение на заданные размеры не возможно!\n";
+			std::cout << "It is not possible to increase by the specified dimensions!\n";
 		}
 	}
 };

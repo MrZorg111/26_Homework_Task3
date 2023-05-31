@@ -10,15 +10,17 @@ int main() {
 		std::cin >> command;
 		//Команда move принимает вектор, на который надо сместить окно на экране. Сообщение с новыми координатами окна появляется на экране.
 		if (command == "move") {
-			std::cout << "Enter the window offset vector: \n";
-			std::cin >> move_vector;
-			monitor->getMoveVector(move_vector);
+			std::cout << "Enter the window offset vector: x = \n";
+			std::cin >> move_vector_x;
+			std::cout << " y = \n";
+			std::cin >> move_vector_y;
+			monitor->getMoveVector(move_vector_x, move_vector_y);
 		}
 		//Команда resize запрашивает из стандартного ввода новый размер окна. После изменения размера сообщение с новым размером выводится на экране.
 		else if (command == "resize") {
-			std::cout << "Введите параметры изменения размера.\n Высота: ";
+			std::cout << "Enter the resizing parameters.\n Height: ";
 			std::cin >> size_heigth_window;
-			std::cout << "Ширина \n";
+			std::cout << "Width: \n";
 			std::cin >> size_width_window;
 			monitor->getResizeWindow(size_heigth_window, size_width_window);
 		}
