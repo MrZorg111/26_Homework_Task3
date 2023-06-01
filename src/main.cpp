@@ -10,9 +10,9 @@ int main() {
 		std::cin >> command;
 		//Команда move принимает вектор, на который надо сместить окно на экране. Сообщение с новыми координатами окна появляется на экране.
 		if (command == "move") {
-			std::cout << "Enter the window offset vector: x = \n";
+			std::cout << "Enter the window offset vector: x = ";
 			std::cin >> move_vector_x;
-			std::cout << " y = \n";
+			std::cout << "\ny = ";
 			std::cin >> move_vector_y;
 			monitor->getMoveVector(move_vector_x, move_vector_y);
 		}
