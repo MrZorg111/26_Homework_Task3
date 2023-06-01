@@ -8,6 +8,7 @@ class Window {
 	int width = 10;
 	int heigth = 10;
 public:
+	//Functions that accept new parameters to class fields
 	void setCoordinate(int& x, int& y) {
 		coordinate_x = x; coordinate_y = y;
 
@@ -18,6 +19,7 @@ public:
 	void setSizeWindow(int& h, int& w) {
 		heigth = h, width = w;
 	}
+	//Functions that provide access to class fields
 	int getCoordinateX() {
 		return coordinate_x;
 	}

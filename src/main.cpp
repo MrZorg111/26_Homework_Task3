@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Monitor.h"
 #include "UserCommand.h"
+#include "Function.h"
 
 int main() {
 	Monitor* monitor = new Monitor();
@@ -8,7 +9,11 @@ int main() {
 	do {
 		std::cout << "Enter command:\n";
 		std::cin >> command;
-		// оманда move принимает вектор, на который надо сместить окно на экране. —ообщение с новыми координатами окна по€вл€етс€ на экране.
+		if (!check_command(command)) {
+			std::cout << "Invalid command, try again!\n";
+			continue;
+		}
+		//Window Move command
 		if (command == "move") {
 			std::cout << "Enter the window offset vector: x = ";
 			std::cin >> move_vector_x;
@@ -16,7 +21,7 @@ int main() {
 			std::cin >> move_vector_y;
 			monitor->getMoveVector(move_vector_x, move_vector_y);
 		}
-		// оманда resize запрашивает из стандартного ввода новый размер окна. ѕосле изменени€ размера сообщение с новым размером выводитс€ на экране.
+		//Command to enter a new window size
 		else if (command == "resize") {
 			std::cout << "Enter the resizing parameters.\n Height: ";
 			std::cin >> size_heigth_window;
@@ -24,7 +29,7 @@ int main() {
 			std::cin >> size_width_window;
 			monitor->getResizeWindow(size_heigth_window, size_width_window);
 		}
-		// оманда display выводит текущее изображение монитора в консоль. 0 Ч это пиксель вне области окна, 1 Ч с окном.
+		//Command to output an image to the console
 		else if (command == "display") {
 			monitor->getViewMonitor();
 		}

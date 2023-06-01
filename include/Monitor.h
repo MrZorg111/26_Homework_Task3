@@ -33,6 +33,7 @@ public:
 			std::cout << std::endl;
 		}
 	}
+	//The function of moving the window on the monitor
 	void getMoveVector(int v_x, int v_y) {
 		int tempo_x = window.getCoordinateX(), tempo_y = window.getCoordinateY();
 		tempo_x += v_x; tempo_y += v_y;
@@ -47,6 +48,7 @@ public:
 		}
 
 	}
+	//Window resizing function
 	void getResizeWindow(int heig, int wid) {
 		int tempo_size_h = window.getHeigth(), tempo_size_w = window.getWidth();
 		tempo_size_h = heig, tempo_size_w = wid;
